@@ -86,10 +86,6 @@ section {
   z-index: 10;
 }
 
-.hero-content {
-  max-width: 90%;
-}
-
 .hero-title {
   margin: 0 0 4rem;
   font-family: var(--font-display);
@@ -358,7 +354,7 @@ section {
   }
 
   .phrase {
-    text-align: center;
+    text-align: left;
     font-size: clamp(1rem, 2.5vw, 1.2rem);
   }
 
