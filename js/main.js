@@ -227,7 +227,7 @@ function downloadCalendarFile() {
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
   link.href = url;
-  link.download = "save-the-date.ics";
+  link.download = "mariage-Gege&Matt.ics";
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);

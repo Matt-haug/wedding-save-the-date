@@ -38,25 +38,27 @@ section {
 .hero {
   position: relative;
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto auto;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
   min-height: 100svh;
   min-height: 100vh;
+  align-items: stretch;
   overflow: hidden;
 }
 
 .hero::before {
   content: "";
   position: absolute;
-  inset: 0;
+  left: 0;
   top: 0;
-  height: 50%;
+  width: 50%;
+  height: 100%;
   background: url("../assets/images/photo_std_couleur.jpg") center / cover no-repeat;
   z-index: 0;
 }
 
 .hero-content {
-  grid-row: 2;
+  grid-column: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -67,7 +69,7 @@ section {
   background: var(--color-off-white);
   position: relative;
   z-index: 1;
-  min-height: 50%;
+  width: 100%;
 }
 
 .scroll-hint {
@@ -98,7 +100,8 @@ section {
   align-items: center;
   justify-content: center;
   gap: 0.3em;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  white-space: nowrap;
 }
 
 .title-the {
@@ -317,7 +320,6 @@ section {
   .hero {
     grid-template-columns: 1fr;
     grid-template-rows: 40vh auto;
-    min-height: auto;
   }
 
   .hero::before {
@@ -326,9 +328,17 @@ section {
   }
 
   .hero-content {
+    grid-column: 1;
     grid-row: 2;
-    padding: 2rem 1.5rem;
     min-height: auto;
+    padding: 2rem 1.5rem;
+    width: 100%;
+  }
+
+  .hero-title {
+    font-size: clamp(1.5rem, 5vw, 2.2rem);
+    flex-wrap: wrap;
+    white-space: normal;
   }
 
   .title-the {
