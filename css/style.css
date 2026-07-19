@@ -17,6 +17,7 @@
 html {
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -24,6 +25,7 @@ body {
   font-family: var(--font-body);
   color: var(--color-dark);
   background: var(--color-off-white);
+  overflow-x: hidden;
 }
 
 section {
