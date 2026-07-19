@@ -199,6 +199,7 @@ function toICSUTCString(date) {
 /* ---------------------------------------------------------------
    Ajouter au calendrier : télécharge un fichier .ics universel
    qui fonctionne avec tous les calendriers (Google, Apple, Outlook, etc).
+   Utilise navigator.share() si disponible (meilleur support WebView/apps).
 ------------------------------------------------------------------ */
 function downloadCalendarFile() {
   const start = localToUTCDate(EVENT.start, EVENT.timezone);
@@ -224,6 +225,19 @@ function downloadCalendarFile() {
   ].join("\r\n");
 
   const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
+
+  if (navigator.share) {
+    navigator.share({
+      title: EVENT.title,
+      text: EVENT.description,
+      files: [new File([blob], "mariage-Gege&Matt.ics", { type: "text/calendar" })]
+    }).catch(() => fallbackDownload(blob));
+  } else {
+    fallbackDownload(blob);
+  }
+}
+
+function fallbackDownload(blob) {
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
   link.href = url;
