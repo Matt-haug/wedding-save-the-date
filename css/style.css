@@ -17,7 +17,6 @@
 html {
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 
 body {
@@ -437,5 +436,22 @@ img.deco-right:nth-of-type(4) {
 
   .reveal-sidebar {
     display: none;
+  }
+
+  .deco-left {
+    left: -30px;
+  }
+
+  .deco-right {
+    right: -30px;
+  }
+
+  .deco-citron,
+  .deco-tomate,
+  .deco-vespa,
+  .deco-huile,
+  .deco-spritz {
+    left: auto !important;
+    right: auto !important;
   }
 }
